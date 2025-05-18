@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday, My Love!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fdfdfd;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 10vh auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: 3.2em;
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    p {
+      font-size: 1.4em;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .heart {
+      color: #e63946;
+      font-size: 3.5em;
+      margin: 30px 0;
+      animation: pulse 1.5s infinite;
+    }
+
+    .button {
+      background: none;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      padding: 12px 24px;
+      margin: 10px;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.4s ease;
+    }
+
+    .button:hover {
+      background-color: #ffffff;
+      color: #0f2027;
+    }
+
+    .reveal-text {
+      display: none;
+      margin-top: 25px;
+      font-size: 1.3em;
+      color: #fafafa;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  justify-items: center;
+  margin-top: 30px;
+}
+
+.fun-fact {
+  font-size: 1.2em;
+  color: #f0f0f0;
+  margin: 20px auto;
+  max-width: 700px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.slideshow-container {
+  max-width: 80%;
+  margin: auto;
+  position: relative;
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Birthday, Aki! 🦭</h1>
+    <p>You are the most beautiful part of my every day. Here is something special just for you.</p>
+    <div class="image">
+  <img src="1D22E280-61AF-4172-83A5-6524C53EEFAC.jpeg" alt="Star Map" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);">
+</div>
+
+<p class="fun-fact">
+  Fun Fact: This is the star map of the night of your birthday in Isabela. If you look closely, you can see the star named <strong>‘Ara’</strong> shining brightly. Maybe it’s a sign that we were really made for each other.
+</p>
+
+<div class="button-grid">
+  <button class="button" onclick="openLetterModal()">Read a Love Letter</button>
+  
+<button class="button" onclick="openGallery()">Open a Memory Gallery</button>
+  <button class="button" onclick="window.location.href='https://open.spotify.com/track/06IPbvFOLoAQ3BDy3XDt0r?si=UVOzER65SAWgV75A72BibA';">A Song for You</button>
+  <button class="button" onclick="alert('I wish for you to achieve all your dreams in life. I wish for your endless happiness and good health. Most of all, I wish to be with you in every breath and every moment until forever lasts. I love you so much, Aki. Happy birthday!')">Reveal My Wish</button>
+
+</div>
+
+  <script>
+    function showMessage(id) {
+      document.querySelectorAll('.reveal-text').forEach(el => el.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+function openLetterModal() {
+  document.getElementById('letterModal').style.display = "block";
+}
+
+function closeLetterModal() {
+  document.getElementById('letterModal').style.display = "none";
+}
+
+  </script>
+
+<script>
+  let slideIndex = 0;
+
+  function openGallery() {
+    document.getElementById('galleryModal').style.display = "block";
+    showSlide(slideIndex);
+  }
+
+  function closeGallery() {
+    document.getElementById('galleryModal').style.display = "none";
+  }
+
+  function changeSlide(n) {
+    showSlide(slideIndex += n);
+  }
+
+  function showSlide(n) {
+    const slides = document.getElementsByClassName("slide");
+    if (n >= slides.length) slideIndex = 0;
+    if (n < 0) slideIndex = slides.length - 1;
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slides[slideIndex].style.display = "block";
+  }
+</script>
+
+<div id="galleryModal" class="modal">
+  <span class="close" onclick="closeGallery()">&times;</span>
+  <div class="slideshow-container">
+    <div class="slide fade">
+      <img src="EB3A63D6-86D6-4870-84A0-2148ED8C2B8E.jpeg" alt="Memory 1">
+    </div>
+    <div class="slide fade">
+      <img src="C122E89C-85B3-4DC1-89DE-02690D29DF64.jpeg" alt="Memory 2">
+</div>
+<div class="slide fade">
+      <img src="A896B41B-ADBD-4654-919E-26BA14B04D49.jpeg" alt="Memory 3">
+    </div>
+<div class="slide fade">
+      <img src="8B25F527-D52F-4CD1-B101-B6801BA699D8.jpeg" alt="Memory 4">
+    </div>
+<div class="slide fade">
+      <img src="7D300EB5-6712-4E1B-8092-BA2585867E70.jpeg" alt="Memory 5">
+    </div>
+<div class="slide fade">
+      <img src="7836C4B7-1986-4F82-A045-DCFBE9FB131F.jpeg" alt="Memory 6">
+    </div>
+<div class="slide fade">
+      <img src="5B94D294-0871-49F5-8327-5391178EA5D5.jpeg" alt="Memory 7">
+    </div>
+<div class="slide fade">
+      <img src="37DFC11D-C961-42DA-9C08-79DE77A7403B.jpeg" alt="Memory 8">
+    </div>
+<div class="slide fade">
+      <img src="296371F1-54F3-4C6F-84F1-6AC1C4DCAE8A.jpeg" alt="Memory 9">
+    </div>
+<div class="slide fade">
+      <img src="0BD988BB-BB9F-48E0-B726-DC42E21E470D.jpeg" alt="Memory 10">
+    </div>
+
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+</div>
+
+<div id="letterModal" class="modal">
+  <span class="close" onclick="closeLetterModal()">&times;</span>
+  <div class="modal-content" style="background-color: rgba(255,255,255,0.05); color: white; padding: 30px; border-radius: 12px; max-width: 600px; margin: auto; text-align: left; font-size: 1.2em; line-height: 1.6;">
+    <p>Hello baby, babe, bb, aki, mahal kong Dominic. I don't know what to give you for your first birthday with me. I have had several plans for your special day, but none could be properly done without me being beside you. I'm sorry. If only flying to you was as easy as 1, 2, 3. But right now, we have dreams to chase, and doing so requires us to spend miles away from each other. In a few minutes, as you age another year in this world which you absolutely hate, I hope you learn to love it by remembering that you are very much loved- by your family, your friends, your colleagues, and by me. Aki, I'm proud of the person you are becoming. You motivate me to do better, and you also remind me to savor every moment. I hope I'm doing the same for you. As we celebrate this milestone of your life, and this milestone in our relationship, may you always be reminded that you will never get to spend it alone anymore. You have me, albeit virtually, but I promise to deliver my love as efficiently as possible. I will remain faithful, constant, and ever-supportive, and I believe that is the best gift that I could give you. Aki, every moment with you is a page of a love story I never want to end. I cherish you deeply. I love you so much. Happy birthday, mahal ko!</p>
+  </div>
+</div>
+
+</body>
+</html>
